@@ -7,8 +7,6 @@
  * і на основі введених даних згенерувати пароль.
  */
 
-var lengthPassword = 0;
-var userChoise = "";
 var validChars = "";
 Random random = new Random();
 var numberChars = "0123456789";
@@ -17,10 +15,10 @@ var upperChars = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
 var lowerChars = "abcdefghijklmnopqrstuvwxyz";
 
 Console.Write("Довжина паролю: ");
-lengthPassword = Int32.Parse(Console.ReadLine());
+var lengthPassword = Int32.Parse(Console.ReadLine());
 
 Console.Write("Використовувати числа?('+' або '-') ");
-userChoise = Console.ReadLine();
+var userChoise = Console.ReadLine();
 if (userChoise == "+")
 {
     validChars += numberChars;
