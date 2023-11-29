@@ -6,66 +6,50 @@
  * регістри) і має один публічний метод GenerateNext, 
  * який вертає тобі унікальний генерований пароль
  */
- 
 
-class PasswordGenerator
+using Task5._2;
+
+var choiseBool1 = false;
+var choiseBool2 = false;
+var choiseBool3 = false;
+var choiseBool4 = false;
+
+Console.Write("Довжина паролю: ");
+var lengthPassword = Int32.Parse(Console.ReadLine());
+
+Console.Write("Використовувати числа?('+' або '-') ");
+var userChoise = Console.ReadLine();
+if (userChoise == "+")
 {
-    private const string lowerChars = "abcdefghijklmnopqrstuvwxyz";
-    private const string upperChars = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
-    private const string numberChars = "0123456789";
-    private const string specChars = "!@#$%^&*?_-";
-    
-    
-
-    public static string GenerateNext(int length, bool includeLowercase, bool includeUppercase, bool includeDigits, bool includeSpecChar)
-    {
-        if (length <= 0)
-        {
-            return "Error";
-        }
-
-        if(!includeLowercase && !includeUppercase && !includeDigits && !includeSpecChar)
-        {
-            return "Error";
-        }
-
-        var validChars = "";
-
-        if (includeLowercase)
-        {
-            validChars += lowerChars;
-        }
-
-        if (includeUppercase)
-        {
-            validChars += upperChars;
-        }
-
-        if (includeDigits)
-        {
-            validChars += numberChars;
-        }
-
-        if (includeSpecChar)
-        {
-            validChars += specChars;
-        }
-
-        Random random = new Random();
-
-        char[] chars = new char[length];
-
-        for (int i = 0; i < length; i++)
-        {
-            chars[i] = validChars[random.Next(0, validChars.Length)];
-        }
-
-        return chars.ToString();
-    }
+    choiseBool1 = true;
 }
 
-// ?
-var password1 = PasswordGenerator.GenerateNext(8, true, false, true, false);
+
+Console.Write("Використовувати спецсимволи?('+' або '-') ");
+userChoise = Console.ReadLine();
+if (userChoise == "+")
+{
+    choiseBool2 = true;
+}
 
 
-// tuple?
+Console.Write("Використовувати букви верхнього регістру?('+' або '-') ");
+userChoise = Console.ReadLine();
+if (userChoise == "+")
+{
+    choiseBool3 = true;
+}
+
+
+Console.Write("Використовувати букви нижнього регістру?('+' або '-') ");
+userChoise = Console.ReadLine();
+if (userChoise == "+")
+{
+    choiseBool4 = true;
+}
+
+
+var password1 = PasswordGenerator.GenerateNext(lengthPassword, choiseBool1, choiseBool2, choiseBool3, choiseBool4);
+
+Console.WriteLine($"Your password: {password1}");
+Console.ReadLine();
