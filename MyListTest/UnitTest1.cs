@@ -156,7 +156,7 @@ public class Tests
         intList.Add(11);
         intList.Add(333);
         intList.Add(100);
-        Assert.AreEqual(3, intList.IndexOf(2314));
+        Assert.AreEqual(2, intList.IndexOf(2314));
         Assert.AreEqual(5, intList.IndexOf(100));
         Assert.AreEqual(0, intList.IndexOf(54));
         
@@ -169,7 +169,11 @@ public class Tests
         intList.Add(13);
         intList.Add(35);
         intList.Add(29);
-        intList.RemoveAt(3);
+        
+        Assert.Throws<ArgumentOutOfRangeException>(() =>
+        {
+            intList.RemoveAt(3);
+        });
     }
     
     [Test]
@@ -177,9 +181,12 @@ public class Tests
     {
         MyList<int> intList = new MyList<int>(2);
         intList.Add(13);
-        intList.Add(35);
-        intList.Add(29);
-        intList.GetAt(3);
+        
+        Assert.Throws<ArgumentOutOfRangeException>(() =>
+        {
+            intList.GetAt(1);
+        });
+       
     }
     
 }
