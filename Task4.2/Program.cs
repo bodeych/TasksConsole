@@ -9,7 +9,9 @@ var userChoice = "";
 
 while (true)
 {
+   
     var possibleChoices = new[] { "камінь", "ножиці", "бумага" };
+    
     var winningConditions = new Dictionary<string, string>
 {
     {"камінь", "ножиці"},
@@ -22,6 +24,7 @@ while (true)
 
         userChoice = Console.ReadLine();
 
+          
         if (userChoice == "q")
         {
             Console.WriteLine("Exit");
@@ -34,7 +37,7 @@ while (true)
             
         }
 } while (!possibleChoices.Contains(userChoice));
-
+       
 var rnd = new Random();
     var botNumber = rnd.Next(possibleChoices.Length);
 

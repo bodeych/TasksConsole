@@ -101,6 +101,12 @@ namespace Task6
 			size--;
 		}
 
+		public T GetAt(int index)
+		{
+			ThrowIfIndexOutOfRange(index);
+			return data[index];
+		}
+
 		public void Clear()
 		{
 			data = new T[capacity];
